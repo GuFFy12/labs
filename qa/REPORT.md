@@ -1,5 +1,9 @@
 Управление качеством, ЛР1-5
 
+Репозиторий: https://github.com/GuFFy12/labs (папка qa/), Actions: https://github.com/GuFFy12/labs/actions
+Монорепо: GitHub запускает только workflow из корня, поэтому workflow лаб лежат в .github/workflows с working-directory папки лабы:
+qa-lr1-tests.yml (ЛР1), qa-lr3-lighthouse.yml (ЛР3), quality-gate.yml (ЛР5). Первый прогон 15.10.2026 - все зеленые.
+
 Проекты: lr1 ... lr5
 Окружение: macOS, Node 24, k6 2.3, Docker
 
@@ -16,7 +20,7 @@
 3. validateEmail через TDD: сначала тесты (упали, модуля нет), потом реализация
    Красный и зеленый прогон: docs/tdd-1-red.png (Cannot find module './validateEmail.js'), docs/tdd-2-green.png (8 passed)
 
-Итог: 22 теста passed, покрытие 100% строк, 95.23% веток, lint без ошибок.
+Итог: 22 теста passed, покрытие 100% строк, 95.23% веток, lint без ошибок. В GitHub Actions (workflow Tests, job lr1-tests) - success.
 
 
 ЛР2. Playwright
@@ -41,6 +45,9 @@
 
 Аудит сайта кофейни (vite, npm run build -> dist, serve на 3000).
 lighthouserc.json и lighthouse.yml по методичке, в workflow добавлен шаг запуска serve.
+GitHub Actions (Lighthouse CI, job lr3-lighthouse): success, ассерты пройдены. Публичный отчет (temporary-public-storage, хранится несколько дней):
+https://storage.googleapis.com/lighthouse-infrastructure.appspot.com/reports/1792058805924-41757.report.html
+копия: reports/ci/lhci-public-report.html
 
 Задание 2, до и после (before/ и корень проекта):
 - до: perf 0.65, a11y 0.51, bp 0.96, seo 0.67, LCP 4766 мс, CLS 0.106, вес 5594 КБ
@@ -112,7 +119,12 @@ quality-gate.yml по методичке. Изменения:
 
 Локальный прогон: lint ok, prettier ok, 27 юнит-тестов, e2e 18/18, visual 3/3, lhci ok, actionlint ok.
 
-Задание 1: jobs связаны через needs, summary падает если lint/unit/e2e/visual не success. Защита ветки main: required checks lint, unit-tests, e2e-tests (chromium/firefox/webkit), visual-tests, lighthouse, summary.
+Задание 1: jobs связаны через needs, summary падает если lint/unit/e2e/visual не success.
+Защита ветки main (шаг 2): Require status checks - lint, unit-tests, e2e-tests (chromium), e2e-tests (firefox), e2e-tests (webkit), lighthouse; Require branches to be up to date - включено.
+Первый прогон на main: lint, unit-tests, e2e x3, visual-tests, lighthouse, summary, deploy-reports - success.
+Проверка блокировки: PR #1 https://github.com/GuFFy12/labs/pull/1 - в cart.test.js намеренно 300 вместо 250. unit-tests: failure, e2e/visual/lighthouse: skipped, summary: failure, merge в main заблокирован (docs/pr-blocked-checks.jpg, docs/pr-blocked.txt).
+Отчеты на GitHub Pages (шаг 3): https://guffy12.github.io/labs/qa-reports/coverage-report/ - deploy-reports пишет в папку qa-reports ветки gh-pages (keep_files), на PR не запускается: отчеты невлитой ветки не публикуем, и peaceiris на событии pull_request падает.
+Бейджи (шаг 4): README.md в корне и в qa/lr5 - GuFFy12/labs.
 
 Задание 2: Playwright screenshot-тесты (e2e/visual/visual.spec.ts): главная, логин, форма с ошибкой. Эталоны снимаются в docker образе playwright, в CI тот же образ.
 Проверка: изменен цвет и padding кнопки - 2 из 3 упали (17025 pixels different). Diff: docs/visual-login-diff.png

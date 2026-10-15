@@ -1,5 +1,7 @@
 Веб-дизайн, ЛР1-4
 
+Репозиторий: https://github.com/GuFFy12/labs (папка design/), сайты: https://guffy12.github.io/labs/
+
 Проекты: lr1/lab1_webdesign, lr2/lab2_webdesign, lr3/site + lr3/site-b, lr4/design-system
 Тема везде одна: онлайн-школа IT-профессий CodeStart (ЛР1 лендинг курса, ЛР2 сайт школы, ЛР3 исследование этого сайта, ЛР4 дизайн-система EduKit для платформы)
 Окружение: macOS, Node 24, Chromium (Playwright), Lighthouse 12.6, axe-core, Storybook 10.6, Style Dictionary 5.5
@@ -20,7 +22,11 @@
 - шрифты: Manrope (заголовки), Inter (текст)
 
 Проверка адаптивности (screenshots/320..1920.png): на 320, 375, 768, 1024, 1440, 1920 горизонтального скролла нет, контейнер на 1920 центрирован. Колонки отзывов (getComputedStyle): 1 / 1 / 2 / 3 / 3 / 3.
-Доступность: WAVE - расширение браузера, вместо него Lighthouse (внутри axe): accessibility 100, alt, контраст и иерархия h1-h2-h3 без ошибок.
+Опубликовано: https://guffy12.github.io/labs/design-lr1/
+Доступность: Lighthouse (axe) accessibility 100. WAVE (wave.webaim.org по опубликованной странице, screenshots/wave/):
+- до: 0 ошибок, 6 ошибок контраста. 1) номера шагов 01/02/03 - в CSS методички (7.7) primary с opacity .3, это 1.6:1; 2) заголовки секций с анимацией появления (задание 3) до прокрутки имеют opacity: 0, и WAVE считает их текстом без контраста
+- исправлено: номера шагов - токен --color-primary-light #3B82F6 без opacity (3.6:1 на светлом и 3.8:1 на тёмном фоне, крупный текст, AA >= 3:1); анимация появления снята с заголовков, карточки и блоки по-прежнему появляются
+- после: 0 ошибок, 0 ошибок контраста, 0 предупреждений, AIM 10/10 (wave-index-after.jpg)
 Контраст в WebAIM Contrast Checker (screenshots/webaim/, 7 пар): текст 14.67:1, muted на карточке 4.62:1, кнопка accent 6.83:1, кнопка primary 5.16:1, подвал 6.98:1, тёмная тема 16.29:1 и 5.7:1 - все AA.
 Lighthouse mobile (медиана из 3): perf 79, a11y 100, bp 96 (404 на favicon.ico, в методичке его нет), seo 91 (reports/lighthouse-mobile.report.html). Порога по Lighthouse в ЛР1 нет; perf тянет вниз блокирующий CSS Google Fonts из шага 6.1, в ЛР2 это исправлено.
 
@@ -69,7 +75,12 @@ Lighthouse mobile (медиана из 3): perf 79, a11y 100, bp 96 (404 на fa
 2. Тёмная тема: все цвета через переменные, переключатель на каждой странице, localStorage, prefers-color-scheme, transition на body. Скрины: dark-index-1440.png, dark-course-1440.png, dark-contacts-375.png
 3. Hover на кнопках/карточках/ссылках, появление при скролле с задержками, прогресс-бар, scroll-behavior: smooth, мобильное меню translateX с transition, prefers-reduced-motion. Скрины: hover-card-1440.png, animate-scroll-1440.png, menu-open-375.png
 
-Итог: 7 страниц, 0 нарушений axe в обеих темах, Lighthouse >= 99 по всем 4 категориям на mobile и desktop.
+WAVE (https://guffy12.github.io/labs/design-lr2/, screenshots/wave/):
+- до: 0 ошибок, 2 ошибки контраста - заголовки "Наши преимущества" и "Отзывы выпускников" с data-animate="fade" (как в примере 8.3) до появления имеют opacity: 0
+- исправлено: анимация снята с этих h2, карточки секций анимируются как раньше
+- после: 0 ошибок, 0 ошибок контраста, AIM 9.9/10. 4 предупреждения (не ошибки): 3 "Redundant link" - картинка и заголовок карточки ведут на одну страницу; 1 "Noscript element" - запасное подключение Google Fonts без JS
+
+Итог: 7 страниц, 0 нарушений axe в обеих темах, 0 ошибок WAVE, Lighthouse >= 99 по всем 4 категориям на mobile и desktop.
 
 
 ЛР3. Core Web Vitals, юзабилити, A/B
@@ -80,7 +91,14 @@ Lighthouse mobile (медиана из 3): perf 79, a11y 100, bp 96 (404 на fa
 3. форма записи на странице курса на мобильном ниже программы, до "Записаться" приходится листать всю страницу
 
 Замер "до" = сайт из ЛР2 в исходном виде (до правки производительности в самой ЛР2), "после" = lr3/site. Lighthouse локально (serve), mobile и desktop, медиана из 3. Сначала 4 страницы из сценариев, потом добавлены остальные 3 (blog, post, teachers), всего 7.
-PageSpeed Insights и WebPageTest требуют публичный URL - их нужно запустить после публикации на Netlify (ниже).
+Публикация: вместо Netlify - GitHub Pages (допускается в 2.1): вариант A https://guffy12.github.io/labs/design-lr3/a/, вариант B https://guffy12.github.io/labs/design-lr3/b/
+PageSpeed Insights, вариант A, 15.10.2026 (screenshots/psi/):
+- mobile: performance 99, accessibility 100, best practices 96, SEO 100; FCP 1.2 с, LCP 2.1 с, TBT 0 мс, CLS 0, Speed Index 2.4 с
+- desktop: 100 / 100 / 96 / 100; FCP 0.2 с, LCP 0.3 с, TBT 0 мс, CLS 0, Speed Index 0.4 с
+- полевых данных (INP) нет: у нового сайта нет трафика в CrUX
+- best practices 96: ошибка в консоли - тег Clarity с заглушкой ВАШ_ID, уйдет после подстановки ID
+- рекомендации Google: срок кеширования (GitHub Pages отдает max-age=600, экономия 169 КиБ при повторном визите), дерево зависимостей в сети; заголовки безопасности (CSP, HSTS, COOP, XFO, Trusted Types) на хостинге GitHub Pages не настраиваются и на оценку не влияют
+WebPageTest требует входа в аккаунт - запускается вручную.
 
 Топ проблем "до" (Lighthouse mobile):
 - CSS fonts.googleapis.com блокирует отрисовку ~835 мс
@@ -162,5 +180,7 @@ Button.js, Button.css, Button.stories.js, FormField.js, Card.js, Tokens.stories.
 Задания:
 1. 21 компонент (надо 5+3+2), истории с вариантами, npm run build-storybook -> storybook-static/. Для GitHub Pages добавлены gh-pages и скрипт deploy-storybook из 8.3.
 2. Темная тема: tokens-dark/colors.json, style-dictionary.dark.config.js (include базовых токенов, в файл только переопределения через фильтр is-source, selector :root[data-theme="dark"] - сильнее :root, который импортирует каждый компонент). preview.js - globalTypes и decorators из подсказки. В темной теме primary = blue-400 с темным текстом (6.8:1). Скрин: storybook-dark-buttons.png, storybook-tokens-dark.png
-3. .github/workflows/chromatic.yml из методички дословно. Сам Chromatic не запускался - нужен аккаунт и CHROMATIC_TOKEN.
+Публичная ссылка на Storybook: https://guffy12.github.io/labs/storybook/ (GitHub Pages, собирается pages.yml при каждом push; аналог npm run deploy-storybook из 8.3)
+Монорепо: история перенесена в https://github.com/GuFFy12/labs, теги edukit-v1.0.0 и edukit-v1.1.0 (в общем репо - с префиксом).
+3. chromatic.yml из методички, в монорепо перенесен в корень .github/workflows с working-directory design/lr4/design-system. Пока секрет CHROMATIC_TOKEN не задан, шаг публикации пропускается. Сам Chromatic не запускался - нужен аккаунт и токен.
    Как автотесты не пускают регрессии: Chromatic снимает каждую историю на каждый push и сравнивает с принятым эталоном; любое изменение пикселей (цвет кнопки, отступ) помечается как change и требует явного Accept, иначе проверка в PR красная.
