@@ -1,0 +1,13 @@
+mergeStateStatus: BLOCKED
+  lint: SUCCESS
+  unit-tests: FAILURE
+  e2e-tests: SKIPPED
+  visual-tests: SKIPPED
+  lighthouse: SKIPPED
+  summary: FAILURE
+  deploy-reports: SKIPPED
+  nightly-report: SKIPPED
+
+$ gh api repos/GuFFy12/labs/branches/main/protection
+required status checks: lint, unit-tests, e2e-tests (chromium), e2e-tests (firefox), e2e-tests (webkit), lighthouse
+require branches to be up to date: true

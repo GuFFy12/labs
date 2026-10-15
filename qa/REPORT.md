@@ -122,7 +122,7 @@ quality-gate.yml по методичке. Изменения:
 Задание 1: jobs связаны через needs, summary падает если lint/unit/e2e/visual не success.
 Защита ветки main (шаг 2): Require status checks - lint, unit-tests, e2e-tests (chromium), e2e-tests (firefox), e2e-tests (webkit), lighthouse; Require branches to be up to date - включено.
 Первый прогон на main: lint, unit-tests, e2e x3, visual-tests, lighthouse, summary, deploy-reports - success.
-Проверка блокировки: PR #1 https://github.com/GuFFy12/labs/pull/1 - в cart.test.js намеренно 300 вместо 250. unit-tests: failure, e2e/visual/lighthouse: skipped, summary: failure, merge в main заблокирован (docs/pr-blocked-checks.jpg, docs/pr-blocked.txt).
+Проверка блокировки: PR #1 https://github.com/GuFFy12/labs/pull/1 - в cart.test.js намеренно 300 вместо 250. unit-tests: failure, e2e/visual/lighthouse: skipped, summary: failure, merge в main заблокирован (docs/pr-blocked-checks.jpg, docs/pr-blocked.png - вывод gh: mergeStateStatus BLOCKED).
 Отчеты на GitHub Pages (шаг 3): https://guffy12.github.io/labs/qa-reports/coverage-report/ - deploy-reports пишет в папку qa-reports ветки gh-pages (keep_files), на PR не запускается: отчеты невлитой ветки не публикуем, и peaceiris на событии pull_request падает.
 Бейджи (шаг 4): README.md в корне и в qa/lr5 - GuFFy12/labs.
 
