@@ -131,4 +131,4 @@ quality-gate.yml по методичке. Изменения:
 
 Задание 3: schedule cron '0 6 * * *' + workflow_dispatch, job nightly-report отправляет письмо через dawidd6/action-send-mail со статусами этапов.
 Проверка 15.10.2026: секреты MAIL_USERNAME, MAIL_PASSWORD (пароль приложения Gmail), MAIL_TO заданы; nightly-report срабатывает по расписанию и при ручном запуске.
-Ручной запуск Quality Gate #12: все этапы success, письмо "Nightly Quality Gate: success (GuFFy12/labs)" отправлено (docs/nightly-run.jpg, docs/nightly-send-report.jpg - логин, пароль и адресат в логе скрыты ***).
+Ручной запуск Quality Gate #12: все этапы success, письмо "Nightly Quality Gate: success (GuFFy12/labs)" отправлено (docs/nightly-run.jpg, docs/nightly-send-report.jpg - логин, пароль и адресат в логе скрыты ***; docs/nightly-email.png - полученное письмо, адрес отправителя закрыт).
