@@ -1,0 +1,8 @@
+{
+  "radius": {
+    "sm":   { "value": "4px",   "type": "borderRadius" },
+    "md":   { "value": "8px",   "type": "borderRadius" },
+    "lg":   { "value": "16px",  "type": "borderRadius" },
+    "pill": { "value": "999px", "type": "borderRadius" }
+  }
+}

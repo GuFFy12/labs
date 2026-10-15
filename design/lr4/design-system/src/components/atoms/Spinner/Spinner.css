@@ -1,0 +1,21 @@
+@import '../../../styles/tokens.css';
+
+.spinner {
+    display: inline-block;
+    border-radius: 50%;
+    border: 3px solid var(--color-semantic-border-default);
+    border-top-color: var(--color-semantic-action-primary);
+    animation: spinner-rotate 800ms linear infinite;
+}
+
+.spinner--sm { width: 16px; height: 16px; border-width: 2px; }
+.spinner--md { width: 32px; height: 32px; }
+.spinner--lg { width: 48px; height: 48px; border-width: 4px; }
+
+@keyframes spinner-rotate {
+    to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .spinner { animation-duration: 2400ms; }
+}

@@ -1,0 +1,53 @@
+@import '../../../styles/tokens.css';
+
+.tooltip {
+    position: relative;
+    display: inline-flex;
+    font-family: var(--font-family-body);
+}
+
+.tooltip__trigger {
+    padding: var(--space-2) var(--space-3);
+    font: inherit;
+    color: var(--color-semantic-action-primary);
+    background: none;
+    border: 1px dashed var(--color-semantic-action-primary);
+    border-radius: var(--radius-sm);
+    cursor: help;
+}
+
+.tooltip__trigger:focus-visible {
+    outline: 3px solid var(--color-semantic-action-primary);
+    outline-offset: 2px;
+}
+
+.tooltip__bubble {
+    position: absolute;
+    left: 50%;
+    z-index: 10;
+    width: max-content;
+    max-width: 240px;
+    padding: var(--space-2) var(--space-3);
+    font-size: var(--font-size-sm);
+    color: var(--color-semantic-background-surface);
+    background: var(--color-semantic-text-default);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateX(-50%);
+    transition: opacity var(--motion-duration-fast) var(--motion-easing-standard),
+                visibility var(--motion-duration-fast) var(--motion-easing-standard);
+    pointer-events: none;
+}
+
+.tooltip--top .tooltip__bubble    { bottom: calc(100% + var(--space-2)); }
+.tooltip--bottom .tooltip__bubble { top: calc(100% + var(--space-2)); }
+
+.tooltip:hover .tooltip__bubble,
+.tooltip:focus-within .tooltip__bubble {
+    opacity: 1;
+    visibility: visible;
+}
+
+.tooltip--dismissed .tooltip__bubble { opacity: 0; visibility: hidden; }

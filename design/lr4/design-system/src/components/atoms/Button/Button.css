@@ -1,0 +1,76 @@
+@import '../../../styles/tokens.css';
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-2);
+    font-family: var(--font-family-body);
+    font-weight: var(--font-weight-semibold);
+    border: 2px solid transparent;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: background-color var(--motion-duration-fast) var(--motion-easing-standard),
+                color var(--motion-duration-fast) var(--motion-easing-standard),
+                transform var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+/* Sizes */
+.btn--sm { padding: var(--space-2) var(--space-4); font-size: var(--font-size-sm); }
+.btn--md { padding: var(--space-3) var(--space-6); font-size: var(--font-size-base); }
+.btn--lg { padding: var(--space-4) var(--space-8); font-size: var(--font-size-lg); }
+
+/* Variants */
+.btn--primary {
+    background: var(--color-semantic-action-primary);
+    color: #fff;
+}
+.btn--primary:hover {
+    background: var(--color-semantic-action-primary-hover);
+    transform: translateY(-1px);
+}
+
+.btn--secondary {
+    background: transparent;
+    color: var(--color-semantic-action-primary);
+    border-color: var(--color-semantic-action-primary);
+}
+.btn--secondary:hover {
+    background: var(--color-semantic-action-primary);
+    color: #fff;
+}
+
+.btn--ghost {
+    background: transparent;
+    color: var(--color-semantic-text-default);
+}
+.btn--ghost:hover {
+    background: var(--color-semantic-background-default);
+}
+
+.btn:focus-visible {
+    outline: 3px solid var(--color-semantic-action-primary);
+    outline-offset: 2px;
+}
+
+.btn:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Дополнение: «жёсткий» #fff заменён токеном — иначе в тёмной теме нет контраста */
+.btn--primary,
+.btn--secondary:hover { color: var(--color-semantic-action-on-primary); }
+.btn--ghost:hover { background: var(--color-semantic-background-muted); }
+
+/* Дополнение: variant danger */
+.btn--danger {
+    background: var(--color-semantic-action-danger);
+    color: var(--color-semantic-action-on-primary);
+}
+.btn--danger:hover {
+    background: var(--color-semantic-action-danger-hover);
+    transform: translateY(-1px);
+}
+.btn--danger:focus-visible { outline-color: var(--color-semantic-action-danger); }

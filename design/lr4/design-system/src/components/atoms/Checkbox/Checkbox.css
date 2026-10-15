@@ -1,0 +1,33 @@
+@import '../../../styles/tokens.css';
+
+.checkbox,
+.radio {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-3);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-base);
+    color: var(--color-semantic-text-default);
+    cursor: pointer;
+}
+
+.checkbox__input,
+.radio__input {
+    width: 20px;
+    height: 20px;
+    margin: 0;
+    accent-color: var(--color-semantic-action-primary);
+    cursor: inherit;
+}
+
+.checkbox__input:focus-visible,
+.radio__input:focus-visible {
+    outline: 3px solid var(--color-semantic-action-primary);
+    outline-offset: 2px;
+}
+
+.checkbox:has(:disabled),
+.radio:has(:disabled) {
+    opacity: .5;
+    cursor: not-allowed;
+}

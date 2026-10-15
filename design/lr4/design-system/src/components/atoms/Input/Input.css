@@ -1,0 +1,33 @@
+@import '../../../styles/tokens.css';
+
+.input {
+    width: 100%;
+    max-width: 360px;
+    padding: var(--space-3) var(--space-4);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-base);
+    color: var(--color-semantic-text-default);
+    background: var(--color-semantic-background-surface);
+    border: 2px solid var(--color-semantic-border-default);
+    border-radius: var(--radius-md);
+    transition: border-color var(--motion-duration-fast) var(--motion-easing-standard),
+                box-shadow var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+.input::placeholder { color: var(--color-semantic-text-muted); }
+
+.input:hover:not(:disabled) { border-color: var(--color-semantic-text-muted); }
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-semantic-action-primary);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-semantic-action-primary) 25%, transparent);
+}
+
+.input[aria-invalid="true"] { border-color: var(--color-semantic-action-danger); }
+
+.input:disabled {
+    opacity: .5;
+    cursor: not-allowed;
+    background: var(--color-semantic-background-muted);
+}

@@ -1,0 +1,23 @@
+{
+  "name": "edukit-design-system",
+  "version": "1.0.0",
+  "description": "EduKit — дизайн-система образовательной платформы: W3C-токены, компоненты на HTML/CSS, Storybook",
+  "main": "src/index.js",
+  "scripts": {
+    "tokens": "style-dictionary build --config style-dictionary.config.json",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "npm run tokens && storybook build",
+    "deploy-storybook": "gh-pages -d storybook-static"
+  },
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@storybook/addon-a11y": "^10.6.0",
+    "@storybook/addon-docs": "^10.6.0",
+    "@storybook/html-vite": "^10.6.0",
+    "gh-pages": "^6.3.0",
+    "storybook": "^10.6.0",
+    "style-dictionary": "^5.5.5"
+  }
+}

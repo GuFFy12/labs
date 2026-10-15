@@ -1,0 +1,7 @@
+@import '../../../styles/tokens.css';
+
+.icon {
+    display: inline-flex;
+    color: inherit;
+    line-height: 0;
+}

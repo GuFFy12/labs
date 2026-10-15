@@ -1,0 +1,35 @@
+@import '../../atoms/Badge/Badge.css';
+
+.table-wrap { overflow-x: auto; max-width: 720px; }
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-semantic-text-default);
+    background: var(--color-semantic-background-surface);
+}
+
+.table__caption {
+    padding-bottom: var(--space-3);
+    font-weight: var(--font-weight-semibold);
+    text-align: left;
+}
+
+.table th,
+.table td {
+    padding: var(--space-3) var(--space-4);
+    text-align: left;
+    border-bottom: 1px solid var(--color-semantic-border-default);
+}
+
+.table th {
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-semantic-text-default);
+    background: var(--color-semantic-background-muted);
+}
+
+.table--striped tbody tr:nth-child(even) { background: var(--color-semantic-background-default); }
+
+.table tbody tr:hover { background: var(--color-semantic-background-muted); }

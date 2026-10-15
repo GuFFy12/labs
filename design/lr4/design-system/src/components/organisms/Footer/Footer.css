@@ -1,0 +1,43 @@
+@import '../../../styles/tokens.css';
+
+.footer {
+    padding: var(--space-12) var(--space-6) var(--space-6);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-sm);
+    color: var(--color-semantic-text-muted);
+    background: var(--color-semantic-background-surface);
+    border-top: 1px solid var(--color-semantic-border-default);
+}
+
+.footer__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: var(--space-8);
+    margin-bottom: var(--space-8);
+}
+
+.footer__brand {
+    margin: 0;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-xl);
+    font-weight: var(--font-weight-bold);
+    color: var(--color-semantic-action-primary);
+}
+
+.footer__title {
+    margin: 0 0 var(--space-3);
+    font-size: var(--font-size-sm);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-semantic-text-default);
+}
+
+.footer__list { display: grid; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
+
+.footer__link { color: var(--color-semantic-text-muted); text-decoration: none; }
+.footer__link:hover { color: var(--color-semantic-action-primary); text-decoration: underline; }
+
+.footer__copy {
+    margin: 0;
+    padding-top: var(--space-6);
+    border-top: 1px solid var(--color-semantic-border-default);
+}

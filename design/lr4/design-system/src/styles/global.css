@@ -1,0 +1,17 @@
+@import './tokens.css';
+
+*, *::before, *::after { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-base);
+    line-height: var(--font-line-height-base);
+    color: var(--color-semantic-text-default);
+    background: var(--color-semantic-background-default);
+    -webkit-font-smoothing: antialiased;
+    transition: background-color var(--motion-duration-base) var(--motion-easing-standard),
+                color var(--motion-duration-base) var(--motion-easing-standard);
+}
+
+img { max-width: 100%; }

@@ -1,0 +1,49 @@
+@import '../../../styles/tokens.css';
+
+.tabs { font-family: var(--font-family-body); max-width: 560px; }
+
+.tabs__list {
+    display: flex;
+    gap: var(--space-4);
+    border-bottom: 1px solid var(--color-semantic-border-default);
+}
+
+.tabs__tab {
+    position: relative;
+    padding: var(--space-3) 0;
+    font-family: inherit;
+    font-size: var(--font-size-base);
+    font-weight: var(--font-weight-medium);
+    color: var(--color-semantic-text-muted);
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+.tabs__tab:hover { color: var(--color-semantic-text-default); }
+
+.tabs__tab[aria-selected="true"] { color: var(--color-semantic-action-primary); }
+
+.tabs__tab[aria-selected="true"]::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    height: 2px;
+    background: var(--color-semantic-action-primary);
+    border-radius: var(--radius-pill);
+}
+
+.tabs__tab:focus-visible,
+.tabs__panel:focus-visible {
+    outline: 3px solid var(--color-semantic-action-primary);
+    outline-offset: 2px;
+}
+
+.tabs__panel {
+    padding: var(--space-4) 0;
+    color: var(--color-semantic-text-default);
+    line-height: var(--font-line-height-base);
+}

@@ -1,0 +1,68 @@
+@import '../../atoms/Button/Button.css';
+@import '../../atoms/Badge/Badge.css';
+
+.card {
+    display: flex;
+    flex-direction: column;
+    max-width: 360px;
+    overflow: hidden;
+    font-family: var(--font-family-body);
+    background: var(--color-semantic-background-surface);
+    border: 1px solid var(--color-semantic-border-default);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--motion-duration-base) var(--motion-easing-standard),
+                box-shadow var(--motion-duration-base) var(--motion-easing-standard);
+}
+
+.card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+}
+
+.card__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+
+.card__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2);
+    padding: var(--space-6);
+}
+
+.card__title {
+    margin: 0;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-lg);
+    line-height: var(--font-line-height-tight);
+    color: var(--color-semantic-text-default);
+}
+
+.card__text {
+    margin: 0 0 var(--space-2);
+    color: var(--color-semantic-text-muted);
+    line-height: var(--font-line-height-base);
+}
+
+.card__price {
+    margin: 0 0 var(--space-2);
+    font-weight: var(--font-weight-bold);
+    font-size: var(--font-size-lg);
+    color: var(--color-semantic-text-default);
+}
+
+.card__meta,
+.card__role {
+    margin: 0;
+    font-size: var(--font-size-sm);
+    color: var(--color-semantic-text-muted);
+}
+
+.card__role { color: var(--color-semantic-action-primary); font-weight: var(--font-weight-semibold); }
+
+.card--user .card__image { aspect-ratio: 1 / 1; }

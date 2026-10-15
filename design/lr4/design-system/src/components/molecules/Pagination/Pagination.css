@@ -1,0 +1,43 @@
+@import '../../atoms/Icon/Icon.css';
+
+.pagination__list {
+    display: flex;
+    gap: var(--space-2);
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.pagination__link {
+    display: grid;
+    place-items: center;
+    min-width: 44px;
+    height: 44px;
+    padding: 0 var(--space-3);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-base);
+    color: var(--color-semantic-text-default);
+    text-decoration: none;
+    border: 1px solid var(--color-semantic-border-default);
+    border-radius: var(--radius-md);
+    transition: border-color var(--motion-duration-fast) var(--motion-easing-standard),
+                color var(--motion-duration-fast) var(--motion-easing-standard);
+}
+
+.pagination__link[href]:hover {
+    border-color: var(--color-semantic-action-primary);
+    color: var(--color-semantic-action-primary);
+}
+
+.pagination__link:focus-visible {
+    outline: 3px solid var(--color-semantic-action-primary);
+    outline-offset: 2px;
+}
+
+.pagination__link[aria-current="page"] {
+    background: var(--color-semantic-action-primary);
+    border-color: var(--color-semantic-action-primary);
+    color: var(--color-semantic-action-on-primary);
+}
+
+.pagination__link[aria-disabled="true"] { opacity: .4; cursor: not-allowed; }

@@ -1,0 +1,26 @@
+@import '../../molecules/FormField/FormField.css';
+@import '../../atoms/Checkbox/Checkbox.css';
+@import '../../atoms/Button/Button.css';
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-4);
+    max-width: 420px;
+    padding: var(--space-8);
+    font-family: var(--font-family-body);
+    background: var(--color-semantic-background-surface);
+    border: 1px solid var(--color-semantic-border-default);
+    border-radius: var(--radius-lg);
+}
+
+.form__title {
+    margin: 0;
+    font-family: var(--font-family-display);
+    font-size: var(--font-size-xl);
+    color: var(--color-semantic-text-default);
+}
+
+.form .btn { align-self: flex-start; }
+
+.form__status { margin: 0; min-height: 1.5em; font-size: var(--font-size-sm); color: var(--color-semantic-text-muted); }
