@@ -2,7 +2,8 @@
 const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 // 1. Появление блоков при попадании в viewport (Intersection Observer)
-const targets = document.querySelectorAll('.section-title, .feature, .how__step, .review, .cta__inner');
+// заголовки секций не анимируем: с opacity: 0 до появления WAVE считает их текстом с нулевым контрастом
+const targets = document.querySelectorAll('.feature, .how__step, .review, .cta__inner');
 
 if (!reduceMotion) {
     const observer = new IntersectionObserver((entries) => {
