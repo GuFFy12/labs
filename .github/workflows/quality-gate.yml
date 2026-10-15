@@ -152,7 +152,9 @@ jobs:
   deploy-reports:
     runs-on: ubuntu-latest
     needs: [e2e-tests, lighthouse]
-    if: always()
+    # в методичке if: always(); отчёты PR, который ещё не влит, на Pages не публикуем
+    # (к тому же peaceiris на событии pull_request падает: "a branch named 'gh-pages' already exists")
+    if: always() && github.event_name != 'pull_request'
     # в gh-pages пишет и pages.yml — публикации идут по очереди
     concurrency:
       group: gh-pages
