@@ -1,0 +1,25 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:root[data-theme="dark"] {
+  --color-semantic-background-default: var(--color-primitive-gray-900);
+  --color-semantic-background-surface: var(--color-primitive-gray-800);
+  --color-semantic-background-muted: var(--color-primitive-gray-700);
+  --color-semantic-text-default: var(--color-primitive-gray-50);
+  --color-semantic-text-muted: var(--color-primitive-gray-300);
+  --color-semantic-border-default: var(--color-primitive-gray-700);
+  --color-semantic-action-primary: var(--color-primitive-blue-400);
+  --color-semantic-action-primary-hover: var(--color-primitive-blue-300);
+  --color-semantic-action-on-primary: var(--color-primitive-gray-900);
+  --color-semantic-action-danger: var(--color-primitive-red-400);
+  --color-semantic-action-danger-hover: var(--color-primitive-red-100);
+  --color-semantic-feedback-info-bg: var(--color-primitive-blue-700);
+  --color-semantic-feedback-info-text: var(--color-primitive-blue-50);
+  --color-semantic-feedback-success-bg: var(--color-primitive-green-900);
+  --color-semantic-feedback-success-text: var(--color-primitive-green-100);
+  --color-semantic-feedback-warning-bg: var(--color-primitive-amber-900);
+  --color-semantic-feedback-warning-text: var(--color-primitive-amber-100);
+  --color-semantic-feedback-error-bg: var(--color-primitive-red-900);
+  --color-semantic-feedback-error-text: var(--color-primitive-red-100);
+}
