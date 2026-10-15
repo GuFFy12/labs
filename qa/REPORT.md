@@ -124,7 +124,9 @@ quality-gate.yml по методичке. Изменения:
 Первый прогон на main: lint, unit-tests, e2e x3, visual-tests, lighthouse, summary, deploy-reports - success.
 Проверка блокировки: PR #1 https://github.com/GuFFy12/labs/pull/1 - в cart.test.js намеренно 300 вместо 250. unit-tests: failure, e2e/visual/lighthouse: skipped, summary: failure, merge в main заблокирован (docs/pr-merge-blocked.jpg - блок merge в PR: required unit-tests упал, e2e ждут, кнопка Merge неактивна; docs/pr-merge-blocked-tooltip.png - "Merging is blocked due to failing merge requirements"; docs/pr-blocked-checks.jpg; docs/pr-blocked.png - вывод gh: mergeStateStatus BLOCKED).
 Отчеты на GitHub Pages (шаг 3): https://guffy12.github.io/labs/qa-reports/coverage-report/ - deploy-reports пишет в папку qa-reports ветки gh-pages (keep_files), на PR не запускается: отчеты невлитой ветки не публикуем, и peaceiris на событии pull_request падает.
-Бейджи (шаг 4): README.md в корне и в qa/lr5 - GuFFy12/labs.
+Бейджи (шаг 4): README.md в корне и в qa/lr5 - GuFFy12/labs; Quality Gate passing, codecov 100% (docs/readme-badges.jpg).
+Codecov: https://app.codecov.io/gh/GuFFy12/labs - 4 файла qa/lr5/src, 32 из 32 строк, 100% (docs/codecov-overview.jpg, docs/codecov-files.jpg).
+Монорепо: lcov пишет пути от папки лабы (src/cart.js), а cart.js, format.js, validateEmail.js есть и в qa/lr1/src - Codecov засчитал только auth.js (9 строк). Исправлено codecov.yml в корне: fixes "src/::qa/lr5/src/".
 
 Задание 2: Playwright screenshot-тесты (e2e/visual/visual.spec.ts): главная, логин, форма с ошибкой. Эталоны снимаются в docker образе playwright, в CI тот же образ.
 Проверка: изменен цвет и padding кнопки - 2 из 3 упали (17025 pixels different). Diff: docs/visual-login-diff.png
