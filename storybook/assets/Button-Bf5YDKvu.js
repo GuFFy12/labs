@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";var t;function n(){return(n=e((()=>{t=({variant:e=`primary`,size:t=`md`,label:n=`Button`,disabled:r=!1})=>{let i=document.createElement(`button`);return i.className=`btn btn--${e} btn--${t}`,i.textContent=n,i.disabled=r,i}})))()}export{n,t};

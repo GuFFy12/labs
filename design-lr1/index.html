@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeStart — курс веб-разработки с нуля</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Manrope:wght@700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Задание 1: тема применяется до отрисовки, чтобы не было мигания -->
+    <script src="js/theme.js"></script>
+</head>
+<body>
+    <!-- Задание 3: прогресс-бар прокрутки -->
+    <div class="progress" aria-hidden="true"><div class="progress__bar"></div></div>
+
+    <header class="header">
+        <div class="container header__inner">
+            <a href="#" class="logo">
+                <img src="img/logo.svg" alt="Логотип" width="120">
+            </a>
+            <nav class="nav">
+                <a href="#features" class="nav__link">Возможности</a>
+                <a href="#how" class="nav__link">Как это работает</a>
+                <a href="#reviews" class="nav__link">Отзывы</a>
+                <a href="#cta" class="btn btn--primary">Начать</a>
+            </nav>
+            <div class="header__actions">
+                <!-- Задание 1: переключатель темы -->
+                <button class="theme-toggle" type="button" data-theme-toggle
+                        aria-label="Переключить тему" aria-pressed="false">
+                    <span class="theme-toggle__icon theme-toggle__icon--sun" aria-hidden="true">☀</span>
+                    <span class="theme-toggle__icon theme-toggle__icon--moon" aria-hidden="true">☾</span>
+                </button>
+                <!-- Задание 2: кнопка-бургер (только на мобильных) -->
+                <button class="burger" type="button" aria-expanded="false"
+                        aria-controls="mobile-menu" aria-label="Открыть меню">☰</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Задание 2: полноэкранное мобильное меню -->
+    <div class="mobile-menu" id="mobile-menu" aria-hidden="true">
+        <button class="mobile-menu__close" type="button" aria-label="Закрыть меню">✕</button>
+        <nav class="mobile-menu__nav">
+            <a href="#features" class="mobile-menu__link">Возможности</a>
+            <a href="#how" class="mobile-menu__link">Как это работает</a>
+            <a href="#reviews" class="mobile-menu__link">Отзывы</a>
+            <a href="#cta" class="btn btn--accent btn--lg">Начать</a>
+        </nav>
+    </div>
+
+    <section class="hero">
+        <!-- Задание 3: фон hero для параллакса -->
+        <div class="hero__bg" aria-hidden="true"></div>
+        <div class="container hero__inner">
+            <div class="hero__content">
+                <h1 class="hero__title">Станьте веб-разработчиком за 6 месяцев</h1>
+                <p class="hero__subtitle">Онлайн-курс с наставником: HTML, CSS, JavaScript и 5 проектов в портфолио к концу обучения</p>
+                <a href="#cta" class="btn btn--accent">Попробовать бесплатно</a>
+            </div>
+            <!-- Hero на десктопе в две колонки (п. 4.3): справа фото -->
+            <img class="hero__image" src="img/hero-students.jpg"
+                 srcset="img/hero-students-800.jpg 800w, img/hero-students.jpg 1600w"
+                 sizes="(min-width: 1024px) 520px, 100vw"
+                 width="1600" height="900" fetchpriority="high"
+                 alt="Наставник разбирает код со студенткой за ноутбуком">
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <div class="container">
+            <h2 class="section-title">Возможности</h2>
+            <div class="features__grid">
+                <article class="feature">
+                    <img src="img/icon-1.svg" alt="" class="feature__icon">
+                    <h3 class="feature__title">Личный наставник</h3>
+                    <p class="feature__text">Практикующий разработчик проверяет каждое задание и отвечает в чате в течение дня</p>
+                </article>
+                <!-- 3–4 таких блока -->
+                <article class="feature">
+                    <img src="img/icon-2.svg" alt="" class="feature__icon">
+                    <h3 class="feature__title">Практика с первого урока</h3>
+                    <p class="feature__text">80% времени — код: вёрстка, интерактив, работа с API и Git</p>
+                </article>
+                <article class="feature">
+                    <img src="img/icon-3.svg" alt="" class="feature__icon">
+                    <h3 class="feature__title">Гибкий график</h3>
+                    <p class="feature__text">Уроки в записи и 8–10 часов в неделю — можно совмещать с работой</p>
+                </article>
+                <article class="feature">
+                    <img src="img/icon-4.svg" alt="" class="feature__icon">
+                    <h3 class="feature__title">Помощь с работой</h3>
+                    <p class="feature__text">Разбор резюме, пробные собеседования и рекомендации партнёрам</p>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="how" id="how">
+        <div class="container">
+            <h2 class="section-title">Как это работает</h2>
+            <ol class="how__list">
+                <li class="how__step">
+                    <span class="how__number">01</span>
+                    <h3 class="how__title">Оставьте заявку</h3>
+                    <p class="how__text">Менеджер позвонит, ответит на вопросы и поможет выбрать поток</p>
+                </li>
+                <!-- 3–4 шага -->
+                <li class="how__step">
+                    <span class="how__number">02</span>
+                    <h3 class="how__title">Пройдите вводный модуль</h3>
+                    <p class="how__text">Первые две недели бесплатно — поймёте, подходит ли вам формат</p>
+                </li>
+                <li class="how__step">
+                    <span class="how__number">03</span>
+                    <h3 class="how__title">Соберите портфолио</h3>
+                    <p class="how__text">5 проектов на GitHub и диплом, которые можно показать работодателю</p>
+                </li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title">Отзывы</h2>
+            <div class="reviews__grid">
+                <blockquote class="review">
+                    <p class="review__text">Пришла из бухгалтерии без опыта в коде. Через полгода вышла джуном во фронтенд — наставник реально разбирал каждую ошибку.</p>
+                    <footer class="review__author">— Анна Смирнова</footer>
+                </blockquote>
+                <!-- 2–3 отзыва -->
+                <blockquote class="review">
+                    <p class="review__text">Понравилось, что с первой недели делаешь настоящий сайт, а не читаешь теорию. Портфолио помогло на собеседовании.</p>
+                    <footer class="review__author">— Игорь Петров</footer>
+                </blockquote>
+                <blockquote class="review">
+                    <p class="review__text">Учился по вечерам после работы, записи уроков выручали. Самое ценное — пробные собеседования в конце курса.</p>
+                    <footer class="review__author">— Дмитрий Козлов</footer>
+                </blockquote>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta" id="cta">
+        <div class="container cta__inner">
+            <h2 class="cta__title">Готовы начать?</h2>
+            <a href="#" class="btn btn--accent btn--lg">Присоединиться</a>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer__inner">
+            <p class="footer__copy">© 2026 CodeStart</p>
+            <nav class="footer__nav">
+                <a href="#" class="footer__link">Политика конфиденциальности</a>
+                <a href="#" class="footer__link">Контакты</a>
+            </nav>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="js/scroll.js"></script>
+</body>
+</html>

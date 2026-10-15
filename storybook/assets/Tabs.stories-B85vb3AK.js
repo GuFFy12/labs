@@ -1,0 +1,11 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";var t,n;function r(){return(r=e((()=>{t=0,n=({tabs:e=[],active:n=0})=>{let r=`tabs-${++t}`,i=document.createElement(`div`);i.className=`tabs`;let a=document.createElement(`div`);a.className=`tabs__list`,a.setAttribute(`role`,`tablist`),i.append(a);let o=e.map((e,t)=>{let n=document.createElement(`button`);n.className=`tabs__tab`,n.id=`${r}-tab-${t}`,n.setAttribute(`role`,`tab`),n.setAttribute(`aria-controls`,`${r}-panel-${t}`),n.textContent=e.label;let o=document.createElement(`div`);return o.className=`tabs__panel`,o.id=`${r}-panel-${t}`,o.setAttribute(`role`,`tabpanel`),o.setAttribute(`aria-labelledby`,n.id),o.tabIndex=0,o.textContent=e.content,a.append(n),i.append(o),{btn:n,panel:o}}),s=e=>{o.forEach(({btn:t,panel:n},r)=>{let i=r===e;t.setAttribute(`aria-selected`,i),t.tabIndex=i?0:-1,n.hidden=!i})};return o.forEach(({btn:e},t)=>{e.addEventListener(`click`,()=>s(t)),e.addEventListener(`keydown`,e=>{if(e.key!==`ArrowRight`&&e.key!==`ArrowLeft`)return;let n=(t+(e.key===`ArrowRight`?1:-1)+o.length)%o.length;s(n),o[n].btn.focus()})}),s(n),i}})))()}var i,a,o,s,c;function l(){return(l=e((()=>{r(),i=[{label:`О курсе`,content:`8 месяцев, 10 часов в неделю, наставник и 5 проектов в портфолио.`},{label:`Программа`,content:`HTML и CSS, JavaScript, инструменты, React, дипломный проект.`},{label:`Отзывы`,content:`«Через восемь месяцев вышла джуном во фронтенд» — Анна Смирнова.`}],a={title:`Molecules/Tabs`,tags:[`autodocs`],argTypes:{active:{control:{type:`select`},options:[0,1,2]}},render:e=>n(e)},o={args:{tabs:i,active:0}},s={args:{tabs:i,active:1}},c=[`Default`,`SecondActive`],o.parameters={...o.parameters,docs:{...o.parameters?.docs,source:{originalSource:`{
+  args: {
+    tabs,
+    active: 0
+  }
+}`,...o.parameters?.docs?.source}}},s.parameters={...s.parameters,docs:{...s.parameters?.docs,source:{originalSource:`{
+  args: {
+    tabs,
+    active: 1
+  }
+}`,...s.parameters?.docs?.source}}}})))()}l();export{o as Default,s as SecondActive,c as __namedExportsOrder,a as default};

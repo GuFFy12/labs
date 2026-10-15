@@ -1,0 +1,1 @@
+import{n as e}from"./rolldown-runtime-DkW27tQK.js";var t;function n(){return(n=e((()=>{t=({label:e=`Badge`,variant:t=`info`})=>{let n=document.createElement(`span`);return n.className=`badge badge--${t}`,n.textContent=e,n}})))()}export{n,t};

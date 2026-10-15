@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Как найти первую работу в IT без опыта — CodeStart</title>
+    <meta name="description" content="Что смотрит работодатель в резюме джуна и как собрать портфолио, которое заметят.">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <!-- ЛР3: шрифты со своего сервера вместо блокирующего CSS fonts.googleapis.com -->
+    <link rel="preload" href="fonts/inter-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="fonts/manrope-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+    <!-- ЛР3: один CSS-файл вместо пяти (собирается build-css.sh) -->
+    <link rel="stylesheet" href="css/bundle.css">
+    <!-- ЛР3: тема ставится до первой отрисовки, остальной JS — с defer -->
+    <script>try{document.documentElement.setAttribute('data-theme',localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'))}catch(e){}</script>
+    <script src="js/theme.js" defer></script>
+    <script src="js/menu.js" defer></script>
+    <script src="js/scroll.js" defer></script>
+    <script src="js/form.js" defer></script>
+    <script type="text/javascript">
+        (function(c,l,a,r,i,t,y){
+            c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+            t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+            y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+        })(window, document, "clarity", "script", "ВАШ_ID");
+    </script>
+    <!-- ЛР3: метка варианта A/B-теста для фильтра в Clarity -->
+    <script>clarity("set", "variant", "A");</script>
+    <script src="js/ab.js" defer></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Header: одинаковый на всех страницах, активный пункт выделен -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="CodeStart — на главную" width="120" height="32">
+            </a>
+            <nav class="nav" aria-label="Основная навигация">
+                <a href="index.html" class="nav__link">Главная</a>
+                <a href="courses.html" class="nav__link">Курсы</a>
+                <a href="teachers.html" class="nav__link">Преподаватели</a>
+                <a href="blog.html" class="nav__link nav__link--active" aria-current="page">Блог</a>
+                <a href="contacts.html" class="nav__link">Контакты</a>
+            </nav>
+            <div class="header__actions">
+                <a href="contacts.html#form" class="btn btn--secondary btn--sm header__login">Войти</a>
+                <button class="theme-toggle" data-theme-toggle
+                        aria-label="Переключить тему" aria-pressed="false">
+                    <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                    <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </button>
+                <button class="burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Мобильное меню (вынесено из header: backdrop-filter ломает position: fixed у потомков) -->
+    <div class="mobile-menu" id="mobile-menu" inert>
+        <button class="theme-toggle mobile-menu__close" aria-label="Закрыть меню"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
+            <a href="index.html" class="mobile-menu__link">Главная</a>
+            <a href="courses.html" class="mobile-menu__link">Курсы</a>
+            <a href="teachers.html" class="mobile-menu__link">Преподаватели</a>
+            <a href="blog.html" class="mobile-menu__link " aria-current="page">Блог</a>
+            <a href="contacts.html" class="mobile-menu__link">Контакты</a>
+            <a href="contacts.html#form" class="btn btn--primary btn--lg">Войти</a>
+        </nav>
+    </div>
+
+    <main id="main">
+        <section class="section">
+            <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <ol class="breadcrumbs__list">
+                    <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+                    <li class="breadcrumbs__item"><a href="blog.html" class="breadcrumbs__link">Блог</a></li>
+                    <li class="breadcrumbs__item" aria-current="page">Первая работа в IT</li>
+                </ol>
+            </nav>
+                <div class="with-sidebar with-sidebar--left">
+                    <aside class="sticky">
+                        <nav class="toc" aria-labelledby="toc-title">
+                            <h2 class="toc__title" id="toc-title">Оглавление</h2>
+                            <ol class="toc__list">
+                                <li><a href="#resume">Резюме джуна</a></li>
+                                <li><a href="#portfolio">Портфолио</a></li>
+                                <li><a href="#search">Где искать вакансии</a></li>
+                                <li><a href="#interview">Собеседование</a></li>
+                            </ol>
+                        </nav>
+                    </aside>
+                    <article>
+                        <h1>Как найти первую работу в IT без опыта</h1>
+                        <p class="post-meta">12 сентября 2026 · 7 мин чтения · Елена Иванова</p>
+                        <img class="post-cover" src="img/photos/post-first-job-800.webp" srcset="img/photos/post-first-job-800.webp 800w, img/photos/post-first-job-1600.webp 1600w" sizes="(min-width: 1024px) 860px, 100vw" alt="Команда обсуждает проект за ноутбуком" width="1600" height="900">
+                        <div class="prose">
+                            <p>Первая работа — самый сложный шаг. Вакансий для джунов меньше, чем для опытных разработчиков, а откликов на каждую — сотни. Хорошая новость: большинство кандидатов допускают одни и те же ошибки, и их легко избежать.</p>
+
+                            <h2 id="resume">Резюме джуна</h2>
+                            <p>Рекрутер тратит на резюме около 30 секунд. За это время он должен понять три вещи: какой у вас стек, что вы уже сделали и как с вами связаться.</p>
+                            <ul>
+                                <li>Одна страница, без фото и лишних подробностей</li>
+                                <li>Стек — в самом начале: <code>HTML</code>, <code>CSS</code>, <code>JavaScript</code>, <code>React</code></li>
+                                <li>Проекты со ссылками на GitHub и живые демо</li>
+                            </ul>
+
+                            <h2 id="portfolio">Портфолио</h2>
+                            <p>Лучше три законченных проекта, чем десять учебных заготовок. Каждый проект должен решать понятную задачу и иметь README с описанием и скриншотами.</p>
+                            <blockquote>Работодатель смотрит не на количество проектов, а на то, как вы думаете: структура кода, коммиты, README.</blockquote>
+
+                            <h2 id="search">Где искать вакансии</h2>
+                            <p>Кроме крупных агрегаторов, смотрите телеграм-каналы с вакансиями, стажировки в крупных компаниях и рекомендации знакомых. Откликайтесь с сопроводительным письмом под конкретную вакансию.</p>
+
+                            <h2 id="interview">Собеседование</h2>
+                            <p>Готовьтесь к трём частям: рассказ о себе и проектах, технические вопросы и живое решение задачи. Проговаривайте ход мысли вслух — это ценят больше, чем идеальный ответ.</p>
+                            <p>Если хотите разобрать своё резюме с наставником — <a href="contacts.html#form">оставьте заявку</a>.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer: одинаковый на всех страницах -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <img src="img/logo.svg" alt="CodeStart" width="120" height="32">
+                    <p class="footer__about">Онлайн-школа IT-профессий: учим с нуля и помогаем найти первую работу.</p>
+                </div>
+                <div>
+                    <h2 class="footer__title">Обучение</h2>
+                    <ul class="footer__list">
+                        <li><a href="courses.html" class="footer__link">Все курсы</a></li>
+                        <li><a href="course.html" class="footer__link">Frontend-разработчик</a></li>
+                        <li><a href="teachers.html" class="footer__link">Преподаватели</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="footer__title">Школа</h2>
+                    <ul class="footer__list">
+                        <li><a href="blog.html" class="footer__link">Блог</a></li>
+                        <li><a href="contacts.html" class="footer__link">Контакты</a></li>
+                        <li><a href="contacts.html#form" class="footer__link">Оставить заявку</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="footer__title">Соцсети</h2>
+                    <ul class="footer__list">
+                        <li><a href="https://t.me/" class="footer__link">Telegram</a></li>
+                        <li><a href="https://vk.com/" class="footer__link">ВКонтакте</a></li>
+                        <li><a href="https://youtube.com/" class="footer__link">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copy">© 2026 CodeStart</p>
+                <a href="#" class="footer__link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
