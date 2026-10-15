@@ -1,0 +1,15 @@
+{
+  "name": "Labs: макеты веб-дизайна",
+  "id": "labs-webdesign-figma",
+  "api": "1.0.0",
+  "main": "code.js",
+  "editorType": ["figma"],
+  "documentAccess": "dynamic-page",
+  "networkAccess": {
+    "allowedDomains": ["https://guffy12.github.io"],
+    "reasoning": "Фотографии для макетов берутся с опубликованных сайтов лабораторных"
+  },
+  "menu": [
+    { "name": "ЛР1 — лендинг CodeStart", "command": "lr1" }
+  ]
+}
