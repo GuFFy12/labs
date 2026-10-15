@@ -1,0 +1,4 @@
+# Монорепо: Vitest в qa/lr5 пишет в lcov пути от папки лабы (src/cart.js),
+# а cart.js, format.js и validateEmail.js есть и в qa/lr1/src — без подсказки Codecov их не сопоставляет
+fixes:
+  - 'src/::qa/lr5/src/'
