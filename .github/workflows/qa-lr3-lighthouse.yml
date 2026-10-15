@@ -1,3 +1,5 @@
+# Управление качеством, ЛР3, шаг 4: Lighthouse CI
+# Монорепо: workflow в корне, проект в qa/lr3
 name: Lighthouse CI
 
 on:
@@ -8,25 +10,33 @@ on:
 
 jobs:
   lighthouse:
+    # имя отличается от job lighthouse в quality-gate.yml, чтобы проверки не путались в защите ветки
+    name: lr3-lighthouse
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: qa/lr3
     steps:
       - uses: actions/checkout@v4
-      
+
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: 20
-          
+          cache: 'npm'
+          cache-dependency-path: qa/lr3/package-lock.json
+
       - name: Install dependencies
         run: npm ci
-        
+
       - name: Build
         run: npm run build
 
       # в методичке этого шага нет, но без поднятого сервера lhci не к чему стучаться
       - name: Start server
         run: npx serve -s dist -l 3000 &
-        
+
+      # upload: temporary-public-storage - ссылка на публичный отчет будет в логе этого шага
       - name: Run Lighthouse CI
         run: |
           npm install -g @lhci/cli

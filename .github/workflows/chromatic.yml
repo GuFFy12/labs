@@ -1,0 +1,29 @@
+# Веб-дизайн, ЛР4, задание 3: визуальные регрессионные тесты в Chromatic
+# Монорепо: workflow в корне, проект в design/lr4/design-system
+name: Chromatic
+
+on:
+  push:
+    paths:
+      - 'design/lr4/design-system/**'
+      - '.github/workflows/chromatic.yml'
+
+jobs:
+  chromatic:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: design/lr4/design-system
+    env:
+      CHROMATIC_TOKEN: ${{ secrets.CHROMATIC_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: npm ci
+      # пока секрет CHROMATIC_TOKEN не задан, шаг пропускается, а не роняет проверку
+      - if: env.CHROMATIC_TOKEN != ''
+        run: npx chromatic --project-token=${{ secrets.CHROMATIC_TOKEN }}

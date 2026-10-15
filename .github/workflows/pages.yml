@@ -1,0 +1,58 @@
+# Публикация сайтов веб-дизайна и Storybook на GitHub Pages (ветка gh-pages)
+#   /design-lr1/   — ЛР1, лендинг
+#   /design-lr2/   — ЛР2, многостраничный сайт
+#   /design-lr3/a/ и /design-lr3/b/ — ЛР3, варианты A и B для A/B-теста
+#   /storybook/    — ЛР4, Storybook дизайн-системы EduKit (вместо npm run deploy-storybook из 8.3)
+#   /qa-reports/   — отчёты управления качеством ЛР5 (пишет quality-gate.yml)
+name: Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'design/**'
+      - '.github/pages-index.html'
+      - '.github/workflows/pages.yml'
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    concurrency:
+      group: gh-pages
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: 'npm'
+          cache-dependency-path: design/lr4/design-system/package-lock.json
+
+      - name: Build Storybook (ЛР4)
+        working-directory: design/lr4/design-system
+        run: |
+          npm ci
+          npm run build-storybook
+
+      - name: Собрать сайт
+        run: |
+          mkdir -p _site/design-lr1 _site/design-lr2 _site/design-lr3/a _site/design-lr3/b _site/storybook
+          cp -r design/lr1/lab1_webdesign/. _site/design-lr1/
+          cp -r design/lr2/lab2_webdesign/. _site/design-lr2/
+          cp -r design/lr3/site/. _site/design-lr3/a/
+          cp -r design/lr3/site-b/. _site/design-lr3/b/
+          cp -r design/lr4/design-system/storybook-static/. _site/storybook/
+          cp .github/pages-index.html _site/index.html
+          touch _site/.nojekyll
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./_site
+          # qa-reports/ публикует quality-gate.yml — не удаляем
+          keep_files: true

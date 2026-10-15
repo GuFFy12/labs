@@ -1,10 +1,16 @@
+# Управление качеством, ЛР1, задание 2: lint и юнит-тесты на каждый push
+# Монорепо: workflow в корне, проект в qa/lr1
 name: Tests
 
 on: [push]
 
 jobs:
   test:
+    name: lr1-tests
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: qa/lr1
     steps:
       - uses: actions/checkout@v4
 
@@ -13,6 +19,7 @@ jobs:
         with:
           node-version: 22 # в методичке 20, но vitest 5 требует Node ^22.12
           cache: 'npm'
+          cache-dependency-path: qa/lr1/package-lock.json
 
       - name: Install dependencies
         run: npm ci

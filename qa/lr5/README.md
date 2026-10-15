@@ -1,7 +1,7 @@
 # lr5
 
-![Quality Gate](https://github.com/USERNAME/REPO/actions/workflows/quality-gate.yml/badge.svg)
-![Coverage](https://codecov.io/gh/USERNAME/REPO/branch/main/graph/badge.svg)
+![Quality Gate](https://github.com/GuFFy12/labs/actions/workflows/quality-gate.yml/badge.svg)
+![Coverage](https://codecov.io/gh/GuFFy12/labs/branch/main/graph/badge.svg)
 
 Учебный сайт кофейни + полный пайплайн контроля качества (лаба 5 по управлению качеством).
 
