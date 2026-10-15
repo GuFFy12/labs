@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Преподаватели — CodeStart</title>
+    <meta name="description" content="Преподаватели CodeStart — практикующие разработчики, дизайнеры и аналитики.">
+    <link rel="icon" href="img/logo.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- 10.2 + 10.3: Google Fonts грузим без блокировки отрисовки (display=swap показывает системный шрифт сразу) -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@700;800&display=swap"></noscript>
+    <link rel="stylesheet" href="css/tokens.css">
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/components.css">
+    <link rel="stylesheet" href="css/pages.css">
+    <!-- theme.js в head: тема применяется до отрисовки, без мигания -->
+    <script src="js/theme.js"></script>
+</head>
+<body>
+    <a class="skip-link" href="#main">Перейти к содержанию</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+
+    <!-- Header: одинаковый на всех страницах, активный пункт выделен -->
+    <header class="header">
+        <div class="container header__inner">
+            <a href="index.html" class="logo">
+                <img src="img/logo.svg" alt="CodeStart — на главную" width="120" height="32">
+            </a>
+            <nav class="nav" aria-label="Основная навигация">
+                <a href="index.html" class="nav__link">Главная</a>
+                <a href="courses.html" class="nav__link">Курсы</a>
+                <a href="teachers.html" class="nav__link nav__link--active" aria-current="page">Преподаватели</a>
+                <a href="blog.html" class="nav__link">Блог</a>
+                <a href="contacts.html" class="nav__link">Контакты</a>
+            </nav>
+            <div class="header__actions">
+                <a href="contacts.html#form" class="btn btn--secondary btn--sm header__login">Войти</a>
+                <button class="theme-toggle" data-theme-toggle
+                        aria-label="Переключить тему" aria-pressed="false">
+                    <svg class="theme-toggle__icon theme-toggle__icon--sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+                    <svg class="theme-toggle__icon theme-toggle__icon--moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+                </button>
+                <button class="burger" aria-expanded="false" aria-controls="mobile-menu" aria-label="Открыть меню">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 6h16M4 12h16M4 18h16"/></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Мобильное меню (вынесено из header: backdrop-filter ломает position: fixed у потомков) -->
+    <div class="mobile-menu" id="mobile-menu" inert>
+        <button class="theme-toggle mobile-menu__close" aria-label="Закрыть меню"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button>
+        <nav class="mobile-menu__nav" aria-label="Мобильная навигация">
+            <a href="index.html" class="mobile-menu__link">Главная</a>
+            <a href="courses.html" class="mobile-menu__link">Курсы</a>
+            <a href="teachers.html" class="mobile-menu__link " aria-current="page">Преподаватели</a>
+            <a href="blog.html" class="mobile-menu__link">Блог</a>
+            <a href="contacts.html" class="mobile-menu__link">Контакты</a>
+            <a href="contacts.html#form" class="btn btn--primary btn--lg">Войти</a>
+        </nav>
+    </div>
+
+    <main id="main">
+        <section class="page-head">
+            <div class="container">
+            <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                <ol class="breadcrumbs__list">
+                    <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+                    <li class="breadcrumbs__item" aria-current="page">Преподаватели</li>
+                </ol>
+            </nav>
+                <h1>Преподаватели</h1>
+                <p class="page-head__lead">Практики из продуктовых компаний: учат тому, что используют в работе каждый день.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <div class="container">
+                <div class="grid grid--4">
+                <article class="card">
+                    <img class="card__image card__image--square" src="img/photos/teacher-ivanova-800.webp" srcset="img/photos/teacher-ivanova-400.webp 400w, img/photos/teacher-ivanova-800.webp 800w" sizes="(min-width: 1024px) 280px, (min-width: 768px) 50vw, 100vw" fetchpriority="high" alt="Елена Иванова" width="800" height="800">
+                    <div class="card__body">
+                        <p class="card__role">Frontend-разработчик</p>
+                        <h2 class="card__title">Елена Иванова</h2>
+                        <p class="card__text">10 лет в разработке, тимлид фронтенда в финтехе. Ведёт курс «Frontend-разработчик».</p>
+                        <div class="card__meta"><a href="course.html">Курс преподавателя →</a></div>
+                    </div>
+                </article>
+                <article class="card" data-animate style="--animate-delay: 200ms">
+                    <img class="card__image card__image--square" src="img/photos/teacher-kim-800.webp" srcset="img/photos/teacher-kim-400.webp 400w, img/photos/teacher-kim-800.webp 800w" sizes="(min-width: 1024px) 280px, (min-width: 768px) 50vw, 100vw" loading="lazy" alt="Александр Ким" width="800" height="800">
+                    <div class="card__body">
+                        <p class="card__role">Python-разработчик</p>
+                        <h2 class="card__title">Александр Ким</h2>
+                        <p class="card__text">Backend-инженер, 8 лет проектирует API и сервисы. Ведёт курс «Python-разработчик».</p>
+                        <div class="card__meta"><a href="course.html">Курс преподавателя →</a></div>
+                    </div>
+                </article>
+                <article class="card" data-animate style="--animate-delay: 300ms">
+                    <img class="card__image card__image--square" src="img/photos/teacher-sokolova-800.webp" srcset="img/photos/teacher-sokolova-400.webp 400w, img/photos/teacher-sokolova-800.webp 800w" sizes="(min-width: 1024px) 280px, (min-width: 768px) 50vw, 100vw" loading="lazy" alt="Мария Соколова" width="800" height="800">
+                    <div class="card__body">
+                        <p class="card__role">Продуктовый дизайнер</p>
+                        <h2 class="card__title">Мария Соколова</h2>
+                        <p class="card__text">Руководитель дизайн-команды, строила дизайн-системы для e-commerce. Ведёт курс «Веб-дизайнер».</p>
+                        <div class="card__meta"><a href="course.html">Курс преподавателя →</a></div>
+                    </div>
+                </article>
+                <article class="card" data-animate style="--animate-delay: 400ms">
+                    <img class="card__image card__image--square" src="img/photos/teacher-orlov-800.webp" srcset="img/photos/teacher-orlov-400.webp 400w, img/photos/teacher-orlov-800.webp 800w" sizes="(min-width: 1024px) 280px, (min-width: 768px) 50vw, 100vw" loading="lazy" alt="Павел Орлов" width="800" height="800">
+                    <div class="card__body">
+                        <p class="card__role">Аналитик данных</p>
+                        <h2 class="card__title">Павел Орлов</h2>
+                        <p class="card__text">Head of Analytics, 7 лет в продуктовой аналитике и A/B-тестах. Ведёт курс «Аналитик данных».</p>
+                        <div class="card__meta"><a href="course.html">Курс преподавателя →</a></div>
+                    </div>
+                </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer: одинаковый на всех страницах -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__grid">
+                <div>
+                    <img src="img/logo.svg" alt="CodeStart" width="120" height="32">
+                    <p class="footer__about">Онлайн-школа IT-профессий: учим с нуля и помогаем найти первую работу.</p>
+                </div>
+                <div>
+                    <h2 class="footer__title">Обучение</h2>
+                    <ul class="footer__list">
+                        <li><a href="courses.html" class="footer__link">Все курсы</a></li>
+                        <li><a href="course.html" class="footer__link">Frontend-разработчик</a></li>
+                        <li><a href="teachers.html" class="footer__link">Преподаватели</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="footer__title">Школа</h2>
+                    <ul class="footer__list">
+                        <li><a href="blog.html" class="footer__link">Блог</a></li>
+                        <li><a href="contacts.html" class="footer__link">Контакты</a></li>
+                        <li><a href="contacts.html#form" class="footer__link">Оставить заявку</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h2 class="footer__title">Соцсети</h2>
+                    <ul class="footer__list">
+                        <li><a href="https://t.me/" class="footer__link">Telegram</a></li>
+                        <li><a href="https://vk.com/" class="footer__link">ВКонтакте</a></li>
+                        <li><a href="https://youtube.com/" class="footer__link">YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p class="footer__copy">© 2026 CodeStart</p>
+                <a href="#" class="footer__link">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/menu.js"></script>
+    <script src="js/scroll.js"></script>
+    <script src="js/form.js"></script>
+</body>
+</html>

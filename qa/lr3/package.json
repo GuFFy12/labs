@@ -1,0 +1,21 @@
+{
+  "name": "lr3",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "build:before": "vite build before --outDir ../dist-before --emptyOutDir",
+    "serve": "serve -s dist -l 3000",
+    "lhci": "lhci autorun"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "devDependencies": {
+    "@lhci/cli": "^0.15.1",
+    "serve": "^14.2.6",
+    "vite": "^8.3.1"
+  }
+}

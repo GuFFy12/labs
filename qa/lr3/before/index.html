@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Кофейня</title>
+    <!-- "аналитика" и "виджеты", грузятся синхронно в head -->
+    <script src="/heavy.js"></script>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">Кофейня «Зерно»</div>
+        <div class="menu">
+            <a>Меню</a> <a>Доставка</a> <a>Контакты</a>
+        </div>
+    </div>
+
+    <div id="promo"></div>
+
+    <img src="/hero.png" class="hero">
+
+    <div class="content">
+        <div class="h">Свежая обжарка каждый день</div>
+        <p class="light">Мы обжариваем зерно сами и варим кофе так, как любим сами. Заходите на эспрессо или берите пачку домой.</p>
+        <div class="cards">
+            <div class="card"><div class="h2">Эспрессо</div><p class="light">120 ₽</p></div>
+            <div class="card"><div class="h2">Капучино</div><p class="light">180 ₽</p></div>
+            <div class="card"><div class="h2">Раф</div><p class="light">220 ₽</p></div>
+        </div>
+        <input placeholder="Ваш email"> <div class="btn" onclick="alert('ok')">Подписаться</div>
+    </div>
+
+    <script>
+        // промо-баннер появляется позже и сдвигает всю страницу вниз
+        setTimeout(function () {
+            document.getElementById('promo').innerHTML =
+                '<div class="promo">Скидка 20% на второй кофе до конца недели!</div>';
+        }, 1200);
+    </script>
+</body>
+</html>

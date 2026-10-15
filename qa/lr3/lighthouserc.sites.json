@@ -1,0 +1,16 @@
+{
+    "ci": {
+        "collect": {
+            "url": [
+                "https://www.wikipedia.org/",
+                "https://github.com/",
+                "https://habr.com/ru/"
+            ],
+            "numberOfRuns": 3
+        },
+        "upload": {
+            "target": "filesystem",
+            "outputDir": "reports/sites"
+        }
+    }
+}

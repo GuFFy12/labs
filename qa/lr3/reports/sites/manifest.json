@@ -1,0 +1,110 @@
+[
+  {
+    "url": "https://www.wikipedia.org/",
+    "isRepresentativeRun": false,
+    "htmlPath": "~/labs/qa/lr3/reports/sites/www_wikipedia_org--2026_09_26_13_36_45.report.html",
+    "jsonPath": "~/labs/qa/lr3/reports/sites/www_wikipedia_org--2026_09_26_13_36_45.report.json",
+    "summary": {
+      "performance": 0.81,
+      "accessibility": 0.96,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://www.wikipedia.org/",
+    "isRepresentativeRun": false,
+    "htmlPath": "~/labs/qa/lr3/reports/sites/www_wikipedia_org--2026_09_26_13_36_58.report.html",
+    "jsonPath": "~/labs/qa/lr3/reports/sites/www_wikipedia_org--2026_09_26_13_36_58.report.json",
+    "summary": {
+      "performance": 0.9,
+      "accessibility": 0.96,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://github.com/",
+    "isRepresentativeRun": false,
+    "htmlPath": "~/labs/qa/lr3/reports/sites/github_com--2026_09_26_13_37_12.report.html",
+    "jsonPath": "~/labs/qa/lr3/reports/sites/github_com--2026_09_26_13_37_12.report.json",
+    "summary": {
+      "performance": 0.29,
+      "accessibility": 1,
+      "best-practices": 0.93,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://github.com/",
+    "isRepresentativeRun": false,
+    "htmlPath": "~/labs/qa/lr3/reports/sites/github_com--2026_09_26_13_38_09.report.html",
+    "jsonPath": "~/labs/qa/lr3/reports/sites/github_com--2026_09_26_13_38_09.report.json",
+    "summary": {
+      "performance": 0.43,
+      "accessibility": 1,
+      "best-practices": 0.93,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://habr.com/ru/",
+    "isRepresentativeRun": false,
+    "htmlPath": "~/labs/qa/lr3/reports/sites/habr_com-ru_-2026_09_26_13_39_50.report.html",
+    "jsonPath": "~/labs/qa/lr3/reports/sites/habr_com-ru_-2026_09_26_13_39_50.report.json",
+    "summary": {
+      "performance": 0.65,
+      "accessibility": 0.68,
+      "best-practices": 0.57,
+      "seo": 0.69
+    }
+  },
+  {
+    "url": "https://habr.com/ru/",
+    "isRepresentativeRun": false,
+    "htmlPath": "~/labs/qa/lr3/reports/sites/habr_com-ru_-2026_09_26_13_40_58.report.html",
+    "jsonPath": "~/labs/qa/lr3/reports/sites/habr_com-ru_-2026_09_26_13_40_58.report.json",
+    "summary": {
+      "performance": 0.65,
+      "accessibility": 0.68,
+      "best-practices": 0.57,
+      "seo": 0.77
+    }
+  },
+  {
+    "url": "https://www.wikipedia.org/",
+    "isRepresentativeRun": true,
+    "htmlPath": "~/labs/qa/lr3/reports/sites/www_wikipedia_org--2026_09_26_13_36_30.report.html",
+    "jsonPath": "~/labs/qa/lr3/reports/sites/www_wikipedia_org--2026_09_26_13_36_30.report.json",
+    "summary": {
+      "performance": 0.91,
+      "accessibility": 0.96,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://github.com/",
+    "isRepresentativeRun": true,
+    "htmlPath": "~/labs/qa/lr3/reports/sites/github_com--2026_09_26_13_37_42.report.html",
+    "jsonPath": "~/labs/qa/lr3/reports/sites/github_com--2026_09_26_13_37_42.report.json",
+    "summary": {
+      "performance": 0.47,
+      "accessibility": 1,
+      "best-practices": 0.93,
+      "seo": 1
+    }
+  },
+  {
+    "url": "https://habr.com/ru/",
+    "isRepresentativeRun": true,
+    "htmlPath": "~/labs/qa/lr3/reports/sites/habr_com-ru_-2026_09_26_13_38_42.report.html",
+    "jsonPath": "~/labs/qa/lr3/reports/sites/habr_com-ru_-2026_09_26_13_38_42.report.json",
+    "summary": {
+      "performance": 0.56,
+      "accessibility": 0.68,
+      "best-practices": 0.57,
+      "seo": 0.69
+    }
+  }
+]

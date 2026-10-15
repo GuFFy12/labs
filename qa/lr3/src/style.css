@@ -1,0 +1,16 @@
+body { margin: 0; font-family: Arial, sans-serif; background: #fff; color: #222; }
+.header { display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: #3b2a20; color: #fff; }
+.logo { font-size: 24px; }
+.menu a { color: #fff; margin-left: 20px; }
+.promo-slot { min-height: 80px; background: #ffe7c2; display: flex; align-items: center; justify-content: center; }
+.promo { font-size: 22px; }
+.hero { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; object-fit: cover; }
+.content { max-width: 900px; margin: 0 auto; padding: 20px; }
+.cards { display: flex; gap: 20px; padding: 0; list-style: none; }
+.card { flex: 1; padding: 20px; border: 1px solid #ddd; }
+.card p { color: #555; }
+.subscribe { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 20px; }
+.subscribe label { width: 100%; }
+.subscribe input { padding: 10px; min-width: 240px; }
+.subscribe button { padding: 10px 20px; background: #7a4b24; color: #fff; border: 0; cursor: pointer; }
+.footer { padding: 20px 40px; background: #f4efe9; }

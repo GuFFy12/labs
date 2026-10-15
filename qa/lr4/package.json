@@ -1,0 +1,15 @@
+{
+  "name": "lr4",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "server": "node server.js",
+    "server:leak": "LEAK=1 node server.js",
+    "test:load": "k6 run load-test.js",
+    "test:load:local": "k6 run load-test.local.js",
+    "test:latency": "k6 run --out csv=results/latency.csv latency-vs-vus.js",
+    "test:stress": "k6 run --out csv=results/stress.csv stress-test.js",
+    "test:soak": "k6 run --out csv=results/soak.csv soak-test.js"
+  }
+}

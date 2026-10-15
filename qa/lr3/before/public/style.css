@@ -1,0 +1,13 @@
+body { margin: 0; font-family: Arial, sans-serif; background: #fff; }
+.header { display: flex; justify-content: space-between; padding: 20px 40px; background: #3b2a20; color: #6b5a50; }
+.logo { font-size: 24px; }
+.menu a { color: #6b5a50; margin-left: 20px; }
+.hero { width: 100%; }
+.content { max-width: 900px; margin: 0 auto; padding: 20px; }
+.h { font-size: 32px; font-weight: bold; margin: 20px 0; }
+.h2 { font-size: 20px; font-weight: bold; }
+.light { color: #bbb; }
+.cards { display: flex; gap: 20px; }
+.card { flex: 1; padding: 20px; border: 1px solid #eee; }
+.btn { display: inline-block; padding: 10px 20px; background: #c8a27a; color: #fff; cursor: pointer; }
+.promo { padding: 60px 20px; font-size: 28px; background: #ffe7c2; text-align: center; }

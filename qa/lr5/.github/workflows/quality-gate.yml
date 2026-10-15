@@ -1,0 +1,177 @@
+name: Quality Gate
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  # Задание 3: nightly build
+  schedule:
+    - cron: '0 6 * * *' # каждый день в 6:00 UTC
+  workflow_dispatch:
+
+jobs:
+  # === Статический анализ ===
+  lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22 # в методичке 20, но vitest 5 требует Node ^22.12
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run lint
+      - run: npx prettier --check .
+
+  # === Юнит-тесты ===
+  unit-tests:
+    runs-on: ubuntu-latest
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22 # в методичке 20, но vitest 5 требует Node ^22.12
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run test:coverage
+      - uses: codecov/codecov-action@v4
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+      # отчёт покрытия тоже кладём в артефакты, чтобы потом выложить на Pages
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage/
+
+  # === E2E-тесты (matrix по браузерам) ===
+  e2e-tests:
+    runs-on: ubuntu-latest
+    needs: unit-tests
+    strategy:
+      matrix:
+        browser: [chromium, firefox, webkit]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22 # в методичке 20, но vitest 5 требует Node ^22.12
+          cache: 'npm'
+      - run: npm ci
+      - run: npx playwright install --with-deps ${{ matrix.browser }}
+      - run: npx playwright test --project=${{ matrix.browser }}
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report-${{ matrix.browser }}
+          path: playwright-report/
+
+  # === Визуальная регрессия (Задание 2) ===
+  # в официальном образе playwright — те же шрифты, что и при снятии эталонов
+  visual-tests:
+    runs-on: ubuntu-latest
+    needs: unit-tests
+    container:
+      image: mcr.microsoft.com/playwright:v1.63.0-noble
+      options: --ipc=host
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm ci
+      - run: npx playwright test --project=visual
+        env:
+          HOME: /root
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: playwright-report-visual
+          path: |
+            playwright-report/
+            test-results/
+
+  # === Lighthouse аудит ===
+  lighthouse:
+    runs-on: ubuntu-latest
+    needs: unit-tests
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22 # в методичке 20, но vitest 5 требует Node ^22.12
+          cache: 'npm'
+      - run: npm ci
+      - run: npm run build
+      - run: npx serve -s dist -l 3000 &
+      - run: npx lhci autorun
+
+  # === Сводный отчёт ===
+  summary:
+    runs-on: ubuntu-latest
+    needs: [lint, unit-tests, e2e-tests, visual-tests, lighthouse]
+    if: always()
+    steps:
+      - name: Check results
+        run: |
+          echo "Lint: ${{ needs.lint.result }}"
+          echo "Unit: ${{ needs.unit-tests.result }}"
+          echo "E2E: ${{ needs.e2e-tests.result }}"
+          echo "Visual: ${{ needs.visual-tests.result }}"
+          echo "Lighthouse: ${{ needs.lighthouse.result }}"
+
+          if [[ "${{ needs.lint.result }}" != "success" ]] || \
+             [[ "${{ needs.unit-tests.result }}" != "success" ]] || \
+             [[ "${{ needs.e2e-tests.result }}" != "success" ]] || \
+             [[ "${{ needs.visual-tests.result }}" != "success" ]]; then
+            echo "Quality gate FAILED"
+            exit 1
+          fi
+
+  deploy-reports:
+    runs-on: ubuntu-latest
+    needs: [e2e-tests, lighthouse]
+    if: always()
+    # GITHUB_TOKEN по умолчанию только на чтение, для пуша в gh-pages нужна запись
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - name: Deploy to GitHub Pages
+        # в методичке @v3, но он на node16 — такие раннеры GitHub уже не запускает
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./artifacts
+
+  # === Nightly: отчёт на почту (Задание 3) ===
+  nightly-report:
+    runs-on: ubuntu-latest
+    needs: [lint, unit-tests, e2e-tests, visual-tests, lighthouse, summary]
+    if: always() && github.event_name == 'schedule'
+    steps:
+      - name: Send report
+        uses: dawidd6/action-send-mail@v3
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          secure: true
+          username: ${{ secrets.MAIL_USERNAME }}
+          password: ${{ secrets.MAIL_PASSWORD }}
+          subject: 'Nightly Quality Gate: ${{ needs.summary.result }} (${{ github.repository }})'
+          to: ${{ secrets.MAIL_TO }}
+          from: GitHub Actions <${{ secrets.MAIL_USERNAME }}>
+          body: |
+            Nightly build ${{ github.repository }} (${{ github.sha }})
+
+            Lint: ${{ needs.lint.result }}
+            Unit: ${{ needs.unit-tests.result }}
+            E2E: ${{ needs.e2e-tests.result }}
+            Visual: ${{ needs.visual-tests.result }}
+            Lighthouse: ${{ needs.lighthouse.result }}
+            Quality gate: ${{ needs.summary.result }}
+
+            Запуск: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            Отчёты: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/

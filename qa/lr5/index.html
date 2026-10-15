@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="description"
+            content="Кофейня «Зерно»: свежая обжарка каждый день, эспрессо, капучино и раф, кофе с собой."
+        />
+        <title>Кофейня «Зерно» — свежая обжарка каждый день</title>
+        <link
+            rel="preload"
+            as="image"
+            href="/hero.webp"
+            imagesrcset="/hero-600.webp 600w, /hero.webp 1200w"
+            imagesizes="100vw"
+            fetchpriority="high"
+        />
+        <link rel="stylesheet" href="/src/style.css" />
+    </head>
+    <body>
+        <header class="header">
+            <span class="logo">Кофейня «Зерно»</span>
+            <nav class="menu" aria-label="Основное меню">
+                <a href="#menu">Меню</a>
+                <a href="#delivery">Доставка</a>
+                <a href="#contacts">Контакты</a>
+                <a href="/login">Войти</a>
+            </nav>
+        </header>
+
+        <!-- место под промо зарезервировано заранее, чтобы не было сдвига (CLS) -->
+        <div id="promo" class="promo-slot" aria-live="polite"></div>
+
+        <main>
+            <img
+                class="hero"
+                src="/hero.webp"
+                srcset="/hero-600.webp 600w, /hero.webp 1200w"
+                sizes="100vw"
+                width="1200"
+                height="675"
+                fetchpriority="high"
+                alt="Кофейные зёрна после обжарки"
+            />
+
+            <section class="content">
+                <h1>Свежая обжарка каждый день</h1>
+                <p>
+                    Мы обжариваем зерно сами и варим кофе так, как любим сами. Заходите на эспрессо
+                    или берите пачку домой.
+                </p>
+
+                <h2 id="menu">Меню</h2>
+                <ul class="cards">
+                    <li class="card">
+                        <h3>Эспрессо</h3>
+                        <p>120 ₽</p>
+                    </li>
+                    <li class="card">
+                        <h3>Капучино</h3>
+                        <p>180 ₽</p>
+                    </li>
+                    <li class="card">
+                        <h3>Раф</h3>
+                        <p>220 ₽</p>
+                    </li>
+                </ul>
+
+                <form class="subscribe" id="subscribe">
+                    <label for="email">Email для новостей</label>
+                    <input
+                        id="email"
+                        type="email"
+                        name="email"
+                        placeholder="you@mail.ru"
+                        required
+                    />
+                    <button type="submit">Подписаться</button>
+                </form>
+            </section>
+        </main>
+
+        <footer id="contacts" class="footer">
+            <p id="delivery">Доставка по городу от 30 минут. Тел. +7 (999) 000-00-00</p>
+        </footer>
+
+        <script type="module" src="/src/main.js"></script>
+    </body>
+</html>

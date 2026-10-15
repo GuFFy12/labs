@@ -1,0 +1,24 @@
+
+ RUN  v5.0.2 ~/quality-lab1
+
+ ❯ src/validateEmail.test.js (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  src/validateEmail.test.js [ src/validateEmail.test.js ]
+Error: Cannot find module './validateEmail.js' imported from ~/quality-lab1/src/validateEmail.test.js
+ ❯ src/validateEmail.test.js:2:1
+      1| import { describe, it, expect } from 'vitest';
+      2| import { validateEmail } from './validateEmail.js';
+       | ^
+      3|
+      4| describe('validateEmail', () => {
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  no tests
+   Start at  20:39:51
+   Duration  119ms (worker 98%, environment 2%)
+

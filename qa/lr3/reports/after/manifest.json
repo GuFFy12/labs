@@ -1,0 +1,38 @@
+[
+  {
+    "url": "http://localhost:3000/",
+    "isRepresentativeRun": false,
+    "htmlPath": "~/labs/qa/lr3/reports/after/localhost--2026_09_26_13_35_44.report.html",
+    "jsonPath": "~/labs/qa/lr3/reports/after/localhost--2026_09_26_13_35_44.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:3000/",
+    "isRepresentativeRun": false,
+    "htmlPath": "~/labs/qa/lr3/reports/after/localhost--2026_09_26_13_35_55.report.html",
+    "jsonPath": "~/labs/qa/lr3/reports/after/localhost--2026_09_26_13_35_55.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  },
+  {
+    "url": "http://localhost:3000/",
+    "isRepresentativeRun": true,
+    "htmlPath": "~/labs/qa/lr3/reports/after/localhost--2026_09_26_13_35_32.report.html",
+    "jsonPath": "~/labs/qa/lr3/reports/after/localhost--2026_09_26_13_35_32.report.json",
+    "summary": {
+      "performance": 1,
+      "accessibility": 1,
+      "best-practices": 1,
+      "seo": 1
+    }
+  }
+]

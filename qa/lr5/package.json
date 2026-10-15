@@ -1,0 +1,31 @@
+{
+    "name": "lr5",
+    "version": "1.0.0",
+    "private": true,
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "serve": "serve -s dist -l 3000",
+        "lint": "eslint src/",
+        "format": "prettier --write .",
+        "test": "vitest",
+        "test:coverage": "vitest run --coverage",
+        "test:e2e": "playwright test",
+        "test:visual:docker": "docker run --rm --ipc=host -v \"$PWD\":/work -v /work/node_modules -w /work mcr.microsoft.com/playwright:v1.63.0-noble /bin/bash -c \"npm ci && npx playwright test --project=visual\"",
+        "test:visual:update": "docker run --rm --ipc=host -v \"$PWD\":/work -v /work/node_modules -w /work mcr.microsoft.com/playwright:v1.63.0-noble /bin/bash -c \"npm ci && npx playwright test --project=visual --update-snapshots\""
+    },
+    "devDependencies": {
+        "@eslint/js": "^10.0.1",
+        "@lhci/cli": "^0.15.1",
+        "@playwright/test": "^1.63.0",
+        "@types/node": "^26.6.3",
+        "@vitest/coverage-v8": "^5.0.2",
+        "eslint": "^10.11.0",
+        "globals": "^17.12.0",
+        "prettier": "^3.9.9",
+        "serve": "^14.2.6",
+        "vite": "^8.3.1",
+        "vitest": "^5.0.2"
+    }
+}
