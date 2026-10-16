@@ -100,7 +100,12 @@ PageSpeed Insights, вариант A, 15.10.2026 (screenshots/psi/):
 - полевых данных (INP) нет: у нового сайта нет трафика в CrUX
 - best practices 96: ошибка в консоли - тег Clarity с заглушкой ВАШ_ID, уйдет после подстановки ID
 - рекомендации Google: срок кеширования (GitHub Pages отдает max-age=600, экономия 169 КиБ при повторном визите), дерево зависимостей в сети; заголовки безопасности (CSP, HSTS, COOP, XFO, Trusted Types) на хостинге GitHub Pages не настраиваются и на оценку не влияют
-WebPageTest требует входа в аккаунт - запускается вручную.
+WebPageTest (Catchpoint), вариант A, 16.10.2026, iPhone 15, Chrome, 4G (9 Мбит/с, RTT 170 мс), Council Bluffs (screenshots/wpt/: summary, filmstrip, waterfall):
+- FCP 1.57 с, LCP 1.95 с, CLS 0, TBT 0 мс, TTFB 0.84 с, Start Render 1.6 с, Speed Index 1.69 с
+- Document Complete 2.06 с, 176 КБ, 19 запросов
+- оценки: Is It Quick - Not Bad (1 блокирующий отрисовку запрос - css/bundle.css), Is It Usable - Looks Great, Is It Resilient - Looks Great (нет блокирующих сторонних запросов)
+- waterfall: большая часть TTFB - DNS + TCP + TLS на 4G с RTT 170 мс; шрифты (preload) и hero-картинка (fetchpriority="high") грузятся параллельно сразу после HTML, скрипты с defer не блокируют отрисовку; 19-й запрос - тег Clarity с заглушкой ВАШ_ID отвечает 400
+- результат: https://www.catchpoint.com/webpagetest/results?publicurl=https%3A%2F%2Fpublic.catchpoint.com%2FUI%2FEntry%2FWPTITP%2FARFP-D-E-B2AD5HIjfKxhr8AAA-N
 
 Топ проблем "до" (Lighthouse mobile):
 - CSS fonts.googleapis.com блокирует отрисовку ~835 мс
