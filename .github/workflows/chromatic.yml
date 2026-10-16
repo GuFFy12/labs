@@ -7,6 +7,7 @@ on:
     paths:
       - 'design/lr4/design-system/**'
       - '.github/workflows/chromatic.yml'
+  workflow_dispatch:
 
 jobs:
   chromatic:
