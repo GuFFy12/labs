@@ -137,7 +137,7 @@ INP в лабораторном прогоне не измеряется, вме
 Цель задания 1 выполнена: LCP < 2.5 с, CLS < 0.1, Lighthouse >= 90 по Performance и Accessibility на всех страницах.
 Отчеты: reports/before/*.report.html, reports/after/*.report.html
 
-Clarity (шаг 4): проект WebDesign-Lab3 (ID yyhqe5k1uv, https://clarity.microsoft.com/projects/view/yyhqe5k1uv/dashboard), код из 4.2 вставлен перед </head> во все страницы site/ и site-b/ (16.10.2026 заглушка ВАШ_ID заменена на ID проекта; замеры PSI и WebPageTest выше сняты еще с заглушкой). Добавлено: метка варианта clarity("set", "variant", "A"/"B") и событие cta_click по клику на CTA (js/ab.js).
+Clarity (шаг 4): проект WebDesign (ID yyhqe5k1uv, https://clarity.microsoft.com/projects/view/yyhqe5k1uv/dashboard), код из 4.2 вставлен перед </head> во все страницы site/ и site-b/ (16.10.2026 заглушка ВАШ_ID заменена на ID проекта; замеры PSI и WebPageTest выше сняты еще с заглушкой). Добавлено: метка варианта clarity("set", "variant", "A"/"B") и событие cta_click по клику на CTA (js/ab.js).
 Замеры "после" сделаны до вставки Clarity.
 
 Юзабилити (шаг 5): research/README.md - портрет участника, 3 сценария из методички, порядок сессии. Шаблоны: protocol.csv (5 участников x 3 сценария), sus-form.md (10 вопросов SUS для Google Forms), sus.csv. sus.py считает SUS по формуле методички (нечетные -1, четные 5-, x2.5) и средний с интерпретацией.
