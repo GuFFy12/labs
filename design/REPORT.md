@@ -189,5 +189,11 @@ Button.js, Button.css, Button.stories.js, FormField.js, Card.js, Tokens.stories.
 2. Темная тема: tokens-dark/colors.json, style-dictionary.dark.config.js (include базовых токенов, в файл только переопределения через фильтр is-source, selector :root[data-theme="dark"] - сильнее :root, который импортирует каждый компонент). preview.js - globalTypes и decorators из подсказки. В темной теме primary = blue-400 с темным текстом (6.8:1). Скрин: storybook-dark-buttons.png, storybook-tokens-dark.png
 Публичная ссылка на Storybook: https://guffy12.github.io/labs/storybook/ (GitHub Pages, собирается pages.yml при каждом push; аналог npm run deploy-storybook из 8.3)
 Монорепо: история перенесена в https://github.com/GuFFy12/labs, теги edukit-v1.0.0 и edukit-v1.1.0 (в общем репо - с префиксом).
-3. chromatic.yml из методички, в монорепо перенесен в корень .github/workflows с working-directory design/lr4/design-system. Пока секрет CHROMATIC_TOKEN не задан, шаг публикации пропускается. Сам Chromatic не запускался - нужен аккаунт и токен.
+3. chromatic.yml из методички, в монорепо перенесен в корень .github/workflows с working-directory design/lr4/design-system (+ workflow_dispatch для ручного запуска). Проект GuFFy12/labs в Chromatic, токен - секрет CHROMATIC_TOKEN. CLI chromatic добавлен в devDependencies: npx без пакета в CI падал с ошибкой npm.
+   Проверка регрессии (screenshots/chromatic/), 16.10.2026:
+   - Build 4: 22 компонента, 70 историй, все 70 снимков приняты как эталон (build4-baseline-accepted.jpg)
+   - Build 5: цвет primary-кнопки заменен на #7c3aed; Chromatic нашел 12 изменений - только истории с primary-кнопкой (Button: Primary, Sizes, Disabled, All Variants и составные компоненты с ней), остальные 58 без изменений (build5-12-changes.jpg); сравнение эталон / новый снимок с подсветкой diff (build5-button-diff.jpg). Workflow Chromatic упал с exit code 1 - регрессия не прошла незамеченной
+   - изменения отклонены (Deny all, build5-denied.jpg), цвет возвращен
+   - Build 6: 70 снимков совпали с эталоном, Build passed (build6-passed.jpg)
+   Storybook в Chromatic: https://www.chromatic.com/builds?appId=6ad1bec1f3aca12257669fe2
    Как автотесты не пускают регрессии: Chromatic снимает каждую историю на каждый push и сравнивает с принятым эталоном; любое изменение пикселей (цвет кнопки, отступ) помечается как change и требует явного Accept, иначе проверка в PR красная.
