@@ -10,6 +10,9 @@
     "reasoning": "Фотографии для макетов берутся с опубликованных сайтов лабораторных"
   },
   "menu": [
-    { "name": "ЛР1 — лендинг CodeStart", "command": "lr1" }
+    { "name": "ЛР1 — лендинг CodeStart", "command": "lr1" },
+    { "name": "ЛР2 — UI Kit (страница Design System)", "command": "lr2kit" },
+    { "name": "ЛР2 — прототип (страница Макеты)", "command": "lr2proto" },
+    { "name": "ЛР4 — дизайн-система EduKit", "command": "lr4" }
   ]
 }
