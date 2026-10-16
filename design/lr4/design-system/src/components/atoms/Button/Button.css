@@ -22,7 +22,7 @@
 
 /* Variants */
 .btn--primary {
-    background: #7c3aed; /* ЛР4 задание 3: проверка Chromatic, было var(--color-semantic-action-primary) */
+    background: var(--color-semantic-action-primary);
     color: #fff;
 }
 .btn--primary:hover {
