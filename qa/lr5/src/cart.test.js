@@ -11,7 +11,8 @@ describe('calculateTotal', () => {
             { price: 100, quantity: 2 },
             { price: 50, quantity: 1 },
         ];
-        expect(calculateTotal(items)).toBe(250);
+        // ЛР5, задание 1: намеренная ошибка — PR должен заблокироваться
+        expect(calculateTotal(items)).toBe(300);
     });
 
     it('should throw error for non-array', () => {
